@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.campustrack.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/subjectFragment"
+        android:name="com.example.campustrack.SubjectFragment"
+        android:label="fragment_subject"
+        tools:layout="@layout/fragment_subject" >
+        <action
+            android:id="@+id/action_subjectFragment_to_addScheduleFragment"
+            app:destination="@id/addScheduleFragment" />
+        <action
+            android:id="@+id/action_subjectFragment_to_detailScheduleFragment"
+            app:destination="@id/detailScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.campustrack.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" >
+        <action
+            android:id="@+id/action_taskFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_taskFragment_to_detailTaskFragment"
+            app:destination="@id/detailTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addScheduleFragment"
+        android:name="com.example.campustrack.AddScheduleFragment"
+        android:label="AddScheduleFragment" />
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.campustrack.AddTaskFragment"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" />
+    <fragment
+        android:id="@+id/detailScheduleFragment"
+        android:name="com.example.campustrack.DetailScheduleFragment"
+        android:label="DetailScheduleFragment" >
+        <argument
+            android:name="subjectId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailScheduleFragment_to_updateScheduleFragment"
+            app:destination="@id/updateScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateScheduleFragment"
+        android:name="com.example.campustrack.UpdateScheduleFragment"
+        android:label="fragment_update_schedule"
+        tools:layout="@layout/fragment_update_schedule" >
+        <argument
+            android:name="subjectId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTaskFragment"
+        android:name="com.example.campustrack.DetailTaskFragment"
+        android:label="DetailTaskFragment" >
+        <argument
+            android:name="taskId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
